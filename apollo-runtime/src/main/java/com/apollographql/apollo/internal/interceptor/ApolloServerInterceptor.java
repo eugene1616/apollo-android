@@ -141,6 +141,7 @@ import static com.apollographql.apollo.api.internal.Utils.checkNotNull;
     if (sendOperationIdentifiers) {
       jsonWriter.name("id").value(operation.operationId());
     } else {
+      jsonWriter.name("operationName").value(operation.name().name());
       jsonWriter.name("query").value(operation.queryDocument().replaceAll("\\n", ""));
     }
     jsonWriter.name("variables").beginObject();
